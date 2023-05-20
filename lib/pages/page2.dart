@@ -34,20 +34,20 @@ class Page2 extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(top: 100),
                     child: Text(
-                      'Page 2',
+                      'Stay Updated',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   SizedBox(height: 20),
                   Image.asset(
-                    'images/page2_image.png', // Replace with your actual image asset path
-                    width: 200,
-                    height: 200,
+                    'lib/images/welcome_image2.png', // Replace with your actual image asset path
+                    width: 350,
+                    height: 350,
                   ),
                   SizedBox(height: 20),
                   const Text(
-                    'Content for Page 2',
+                    'Be notified of Schedules and Updates',
                     style: TextStyle(fontSize: 18),
                   ),
                 ],

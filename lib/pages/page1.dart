@@ -34,7 +34,7 @@ class Page1 extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(top: 100),
                     child: Text(
-                      'Welcome',
+                      'Welcome!',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
@@ -42,8 +42,8 @@ class Page1 extends StatelessWidget {
                   SizedBox(height: 20),
                   Image.asset(
                     'lib/images/welcome_image.png', // Replace with your actual image asset path
-                    width: 200,
-                    height: 200,
+                    width: 400,
+                    height: 400,
                   ),
                   SizedBox(height: 20),
                   const Center(
