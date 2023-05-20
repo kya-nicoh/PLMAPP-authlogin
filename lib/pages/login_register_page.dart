@@ -3,10 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../auth.dart';
 import 'home_page.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
-
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -36,7 +34,6 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
-
 
   Future<void> createUserWithEmailAndPassword() async {
     try {

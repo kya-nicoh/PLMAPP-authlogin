@@ -29,16 +29,15 @@ class _WidgetTreeState extends State<WidgetTree> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     Widget currentPage;
     if (currentPageIndex == 0) {
-      currentPage = Page1();
+      currentPage = const Page1();
     } else if (currentPageIndex == 1) {
-      currentPage = Page2();
+      currentPage = const Page2();
     } else if (currentPageIndex == 2) {
-      currentPage = Page3();
+      currentPage = const Page3();
     } else {
       return StreamBuilder(
         stream: Auth().authStateChanges,
@@ -46,7 +45,7 @@ class _WidgetTreeState extends State<WidgetTree> {
           if (snapshot.hasData) {
             return HomePage();
           } else {
-            return LoginPage();
+            return const LoginPage();
           }
         },
       );
@@ -57,14 +56,14 @@ class _WidgetTreeState extends State<WidgetTree> {
       bottomNavigationBar: currentPageIndex == 0
           ? null
           : BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: ElevatedButton(
-            onPressed: nextPage,
-            child: const Text('Next'),
-          ),
-        ),
-      ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ElevatedButton(
+                  onPressed: nextPage,
+                  child: const Text('Next'),
+                ),
+              ),
+            ),
     );
   }
 }
