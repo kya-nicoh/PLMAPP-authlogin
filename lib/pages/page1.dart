@@ -22,28 +22,52 @@ class Page1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.2,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(60),
+                bottomRight: Radius.circular(60),
+              ),
+            ),
+            child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 100),
-                    child: Text(
-                      'Welcome!',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  SizedBox(height: 20),
+                  Text(
+                    'Welcome!',
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 20),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'lib/images/plm.png', // Replace with your second image asset path
+                    width: 500,
+                    height: 200,
+                    fit: BoxFit.fill,
+                  ),
+                  SizedBox(height: 1),
                   Image.asset(
                     'lib/images/welcome_image.png', // Replace with your actual image asset path
-                    width: 400,
-                    height: 400,
+                    width: 200,
+                    height: 200,
                   ),
                   SizedBox(height: 20),
                   const Center(
@@ -53,31 +77,30 @@ class Page1 extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
+
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => skipPage(context),
+                        child: Text('Skip'),
+                      ),
+                      const Text(
+                        ' . . . ',
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                      ElevatedButton(
+                        onPressed: () => nextPage(context),
+                        child: Text('Next'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => skipPage(context),
-                    child: Text('Skip'),
-                  ),
-                  const Text(
-                    ' . . . ',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  ElevatedButton(
-                    onPressed: () => nextPage(context),
-                    child: Text('Next'),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
