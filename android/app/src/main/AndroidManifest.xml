@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.plmapp_authlogin">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="plmapp_authlogin"
         android:name="${applicationName}"

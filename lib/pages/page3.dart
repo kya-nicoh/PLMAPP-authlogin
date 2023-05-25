@@ -19,7 +19,7 @@ class Page3 extends StatelessWidget {
     );
   }
   void launchWebsite() async {
-    const url = 'https://plm.edu.ph';
+    const url = 'https://google.com';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
