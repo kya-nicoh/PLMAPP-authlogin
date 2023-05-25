@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'page2.dart';
 import '../pages/login_register_page.dart';
+import '../pages/page4.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class Page1 extends StatelessWidget {
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => Page4()),
     );
   }
 

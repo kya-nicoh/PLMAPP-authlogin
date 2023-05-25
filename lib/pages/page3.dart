@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../pages/login_register_page.dart';
+import '../pages/page4.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Page3 extends StatelessWidget {
@@ -8,16 +8,17 @@ class Page3 extends StatelessWidget {
   void nextPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => Page4()),
     );
   }
 
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => Page4()),
     );
   }
+
   void launchWebsite() async {
     const url = 'https://google.com';
     if (await canLaunch(url)) {
@@ -76,7 +77,7 @@ class Page3 extends StatelessWidget {
                     child: Text(
                       'Enroll and Apply',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
