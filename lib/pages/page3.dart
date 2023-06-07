@@ -62,11 +62,18 @@ class Page3 extends StatelessWidget {
                   Text(
                     'Enroll & Apply',
                     style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                       color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(0, 0),
+                          blurRadius: 10,
+                          color: Colors.black54,
+                        ),
+                      ],
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -84,15 +91,21 @@ class Page3 extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () => launchWebsite(),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFFFFE600), // Yellow color (#FFE600)
+                      primary: Colors.white, // Set the background color to white
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20), // Adjust the radius to make the button more or less rounded
+                      ),
+                      elevation: 5, // Add a shadow effect with elevation
+                      shadowColor: Colors.grey, // Set the shadow color
                     ),
                     child: const Text(
                       'Enroll and Apply',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFFFFE600), // Yellow color (#FFE600)
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
@@ -104,9 +117,16 @@ class Page3 extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () => skipPage(context),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFFFFE600), // Same color as the oblong
+                      primary: Colors.transparent, // Set the background color to transparent
+                      elevation: 0, // Remove the button elevation
                     ),
-                    child: const Text('Skip'),
+                    child: const Text(
+                      'Skip',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFFFFE600), // Set the text color to blue
+                      ),
+                    ),
                   ),
                   Row(
                     children: [
@@ -115,7 +135,7 @@ class Page3 extends StatelessWidget {
                         height: 6,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.black,
+                          color: Colors.grey,
                         ),
                       ),
                       const SizedBox(width: 5),
@@ -124,7 +144,7 @@ class Page3 extends StatelessWidget {
                         height: 6,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.black,
+                          color: Colors.grey,
                         ),
                       ),
                       const SizedBox(width: 5),
@@ -133,7 +153,7 @@ class Page3 extends StatelessWidget {
                         height: 10,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.black,
+                          color: Color(0xFFFFE600),
                         ),
                       ),
                     ],
@@ -141,9 +161,14 @@ class Page3 extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () => nextPage(context),
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFFFFE600), // Same color as the oblong
+                      primary: Colors.transparent, // Set the background color to transparent
+                      elevation: 0, // Remove the button elevation
                     ),
-                    child: const Text('Next'),
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      size: 35,
+                      color: Color(0xFFFFE600), // Set the icon color to blue
+                    ),
                   ),
                 ],
               ),
