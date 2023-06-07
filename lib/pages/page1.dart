@@ -9,14 +9,24 @@ class Page1 extends StatelessWidget {
   void nextPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Page2()),
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
     );
   }
+
 
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Page4()),
+      MaterialPageRoute(builder: (context) => const Page4()),
     );
   }
 
@@ -28,7 +38,7 @@ class Page1 extends StatelessWidget {
           Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height * 0.2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(60),
@@ -38,7 +48,7 @@ class Page1 extends StatelessWidget {
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   SizedBox(height: 20),
                   Text(
                     'Welcome!',
@@ -64,13 +74,13 @@ class Page1 extends StatelessWidget {
                     height: 200,
                     fit: BoxFit.fill,
                   ),
-                  SizedBox(height: 1),
+                  const SizedBox(height: 1),
                   Image.asset(
                     'lib/images/welcome_image.png', // Replace with your actual image asset path
                     width: 200,
                     height: 200,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   const Center(
                     child: Text(
                       'Welcome to the Centralized Mobile App of Pamantasan ng Lungsod ng Maynila',
@@ -78,25 +88,56 @@ class Page1 extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => skipPage(context),
-                        child: Text('Skip'),
-                      ),
-                      const Text(
-                        ' . . . ',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      ElevatedButton(
-                        onPressed: () => nextPage(context),
-                        child: Text('Next'),
-                      ),
-                    ],
-                  ),
+                  const SizedBox(height: 39), // Add a SizedBox with desired height
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () => skipPage(context),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blue, // Same color as the oblong
+                          ),
+                          child: const Text('Skip'),
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 10,
+                              height: 10,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        ElevatedButton(
+                          onPressed: () => nextPage(context),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.blue, // Same color as the oblong
+                          ),
+                          child: const Text('Next'),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),

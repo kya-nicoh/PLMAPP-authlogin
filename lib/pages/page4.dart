@@ -7,14 +7,14 @@ class Page4 extends StatelessWidget {
   void nextPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 
@@ -30,7 +30,7 @@ class Page4 extends StatelessWidget {
               alignment: Alignment.topLeft,
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.width * 0.25,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(100),
@@ -38,7 +38,7 @@ class Page4 extends StatelessWidget {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,36 +52,36 @@ class Page4 extends StatelessWidget {
                         width: 200,
                         height: 200,
                       ),
-                      SizedBox(height: 16),
-                      Text(
+                      const SizedBox(height: 16),
+                      const Text(
                         'Welcome to PLM',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 16),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                      const SizedBox(height: 16),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           'The PLM App provides a centralized medium for accessing necessary information about the institution for the benefit of its students, faculty, staff, and guests through a mobile application.',
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      SizedBox(height: 32),
-                      Container(
+                      const SizedBox(height: 32),
+                      SizedBox(
                         width: 200, // Adjust this value to set the desired width
                         child: ElevatedButton(
                           onPressed: () => nextPage(context),
-                          child: Text('Login'),
+                          child: const Text('Login'),
                         ),
                       ),
-                      SizedBox(height: 16),
-                      Container(
+                      const SizedBox(height: 16),
+                      SizedBox(
                         width: 200, // Adjust this value to set the desired width
                         child: TextButton(
                           onPressed: () => skipPage(context),
-                          child: Text('Skip'),
+                          child: const Text('Skip'),
                         ),
                       ),
                     ],
@@ -92,7 +92,7 @@ class Page4 extends StatelessWidget {
                   left: -100, // Adjust this value to move the triangle further to the left
                   child: CustomPaint(
                     painter: TrianglePainter(),
-                    child: Container(
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       height: MediaQuery.of(context).size.width * 0.25,
                     ),

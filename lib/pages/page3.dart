@@ -6,16 +6,25 @@ class Page3 extends StatelessWidget {
   const Page3({Key? key}) : super(key: key);
 
   void nextPage(BuildContext context) {
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Page4()),
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) => const Page4(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
     );
   }
 
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Page4()),
+      MaterialPageRoute(builder: (context) => const Page4()),
     );
   }
 
@@ -31,7 +40,7 @@ class Page3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +48,7 @@ class Page3 extends StatelessWidget {
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFFFFE600), // Yellow color (#FFE600)
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(60),
@@ -48,7 +57,7 @@ class Page3 extends StatelessWidget {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   SizedBox(height: 1),
                   Text(
                     'Enroll & Apply',
@@ -65,56 +74,76 @@ class Page3 extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 1),
+                  const SizedBox(height: 1),
                   Image.asset(
                     'lib/images/welcome_image3.png', // Replace with your actual image asset path
                     width: 350,
                     height: 350,
                   ),
-                  SizedBox(height: 1),
+                  const SizedBox(height: 1),
                   ElevatedButton(
                     onPressed: () => launchWebsite(),
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color(0xFFFFE600), // Yellow color (#FFE600)
+                    ),
+                    child: const Text(
                       'Enroll and Apply',
                       style: TextStyle(
                         color: Colors.white,
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFFFE600), // Yellow color (#FFE600)
                     ),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 1),
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     onPressed: () => skipPage(context),
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFFFE600), // Yellow color (#FFE600)
+                      primary: const Color(0xFFFFE600), // Same color as the oblong
                     ),
+                    child: const Text('Skip'),
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        width: 6,
+                        height: 6,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      Container(
+                        width: 6,
+                        height: 6,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      Container(
+                        width: 10,
+                        height: 10,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                   ElevatedButton(
                     onPressed: () => nextPage(context),
-                    child: Text(
-                      'Next',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFFFE600), // Yellow color (#FFE600)
+                      primary: const Color(0xFFFFE600), // Same color as the oblong
                     ),
+                    child: const Text('Next'),
                   ),
                 ],
               ),

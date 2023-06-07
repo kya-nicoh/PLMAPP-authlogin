@@ -9,21 +9,30 @@ class Page2 extends StatelessWidget {
   void nextPage(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Page3()),
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) => const Page3(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
     );
   }
 
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => Page4()),
+      MaterialPageRoute(builder: (context) => const Page4()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,7 +40,7 @@ class Page2 extends StatelessWidget {
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFFE84949), // Color theme for the oblong
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(60),
@@ -40,7 +49,7 @@ class Page2 extends StatelessWidget {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   SizedBox(height: 20),
                   Center(
                     child: Text(
@@ -59,14 +68,14 @@ class Page2 extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 1),
+                  const SizedBox(height: 1),
                   Image.asset(
                     'lib/images/welcome_image2.png', // Replace with your actual image asset path
                     width: 350,
                     height: 350,
                   ),
-                  SizedBox(height: 1),
-                  Text(
+                  const SizedBox(height: 1),
+                  const Text(
                     'Stay Updated',
                     style: TextStyle(
                       fontSize: 18,
@@ -78,41 +87,41 @@ class Page2 extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     onPressed: () => skipPage(context),
-                    child: Text('Skip'),
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFE84949), // Same color as the oblong
+                      primary: const Color(0xFFE84949), // Same color as the oblong
                     ),
+                    child: const Text('Skip'),
                   ),
                   Row(
                     children: [
                       Container(
                         width: 6,
                         height: 6,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Container(
                         width: 10,
                         height: 10,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Container(
                         width: 6,
                         height: 6,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.black,
                         ),
@@ -121,10 +130,10 @@ class Page2 extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () => nextPage(context),
-                    child: Text('Next'),
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFE84949), // Same color as the oblong
+                      primary: const Color(0xFFE84949), // Same color as the oblong
                     ),
+                    child: const Text('Next'),
                   ),
                 ],
               ),
