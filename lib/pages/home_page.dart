@@ -75,19 +75,34 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OutlinedButton(
-                  child: const Text('ABOUT PLM'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.question_answer),
+                      Text('ABOUT PLM'),
+                    ],
+                  ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
                 ),
                 OutlinedButton(
-                  child: const Text('MAP'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.map),
+                      Text('MAP'),
+                    ],
+                  ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
                 ),
                 OutlinedButton(
-                  child: const Text('HEALTH DECLARATION'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.receipt),
+                      Text('HEALTH DECLARATION'),
+                    ],
+                  ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -101,19 +116,34 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OutlinedButton(
-                  child: const Text('ACADEMIC \nCALENDAR'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.calendar_month),
+                      Text('ACADEMIC\nCALENDAR'),
+                    ],
+                  ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
                 ),
                 OutlinedButton(
-                  child: const Text('ADMISSION'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.person),
+                      Text('ADMISSION'),
+                    ],
+                  ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
                 ),
                 OutlinedButton(
-                  child: const Text('LIBRARY'),
+                  child: Column(
+                    children: const [
+                      Icon(Icons.book),
+                      Text('LIBRARY'),
+                    ],
+                  ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
