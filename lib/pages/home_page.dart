@@ -62,10 +62,18 @@ class HomePage extends StatelessWidget {
                   children: [
                     // DATE,
                     ElevatedButton(
-                      child: const Text('Events'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                      ),
                       onPressed: () {
                         debugPrint('Outlined Button');
                       },
+                      child: Column(
+                        children: const [
+                          Icon(Icons.mic),
+                          Text('Events'),
+                        ],
+                      ),
                     ),
                   ],
                 ),
