@@ -70,7 +70,8 @@ class Page4 extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       SizedBox(
-                        width: 200, // Adjust this value to set the desired width
+                        width:
+                            200, // Adjust this value to set the desired width
                         child: ElevatedButton(
                           onPressed: () => nextPage(context),
                           child: const Text('Login'),
@@ -78,7 +79,8 @@ class Page4 extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       SizedBox(
-                        width: 200, // Adjust this value to set the desired width
+                        width:
+                            200, // Adjust this value to set the desired width
                         child: TextButton(
                           onPressed: () => skipPage(context),
                           child: const Text('Skip'),
@@ -89,7 +91,8 @@ class Page4 extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 0,
-                  left: -100, // Adjust this value to move the triangle further to the left
+                  left:
+                      -100, // Adjust this value to move the triangle further to the left
                   child: CustomPaint(
                     painter: TrianglePainter(),
                     child: SizedBox(

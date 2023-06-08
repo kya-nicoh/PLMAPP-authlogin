@@ -14,6 +14,7 @@ dependencies:
   firebase_auth: ^4.6.1
   url_launcher: ^6.0.0
   webview_flutter: ^2.0.12
+  table_calendar: ^3.0.1
 
 dev_dependencies:
   flutter_test:
