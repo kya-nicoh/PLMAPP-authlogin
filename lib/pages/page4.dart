@@ -1,3 +1,4 @@
+import '../pages/guest_page.dart';
 import 'package:flutter/material.dart';
 import '../pages/login_register_page.dart';
 
@@ -14,7 +15,7 @@ class Page4 extends StatelessWidget {
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const LoginPage()),
+      MaterialPageRoute(builder: (context) => const GuestPage()),
     );
   }
 

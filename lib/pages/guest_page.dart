@@ -1,32 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import '../auth.dart';
-import '../pages/healthdeclaration.dart';
 import '../pages/plm_website_view.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-
-  final User? user = Auth().currentUser;
-
-  Future<void> signOut() async {
-    await Auth().signOut();
-  }
-
-  Widget _title() {
-    return const Text('PLM APP');
-  }
-
-  Widget _userUid() {
-    return Text(user?.email ?? 'User email');
-  }
-
-  Widget _signOutButton() {
-    return ElevatedButton(
-      onPressed: signOut,
-      child: const Text('Sign Out'),
-    );
-  }
+class GuestPage extends StatelessWidget {
+  const GuestPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +22,7 @@ class HomePage extends StatelessWidget {
               margin: EdgeInsets.only(left: 24, top: 24),
               width: double.infinity,
               child: const Text(
-                'Welcome!',
+                'Welcome, Guest!',
                 style: TextStyle(
                   color: Colors.blue,
                   fontSize: 32,
@@ -111,36 +88,6 @@ class HomePage extends StatelessWidget {
                 OutlinedButton(
                   child: Column(
                     children: const [
-                      Icon(Icons.receipt),
-                      Text('HEALTH DECLARATION'),
-                    ],
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HealthDeclaration()));
-                  },
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.calendar_month),
-                      Text('ACADEMIC\nCALENDAR'),
-                    ],
-                  ),
-                  onPressed: () {
-                    debugPrint('Outlined Button');
-                  },
-                ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
                       Icon(Icons.person),
                       Text('ADMISSION'),
                     ],
@@ -149,48 +96,40 @@ class HomePage extends StatelessWidget {
                     debugPrint('Outlined Button');
                   },
                 ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.book),
-                      Text('LIBRARY'),
-                    ],
-                  ),
-                  onPressed: () {
-                    debugPrint('Outlined Button');
-                  },
-                ),
               ],
             ),
-            Column(
-              children: <Widget>[
-                _signOutButton(), // TO-DO: not logging out, if persist just redirect to home
-              ],
-            )
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: 350,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  elevation: 3,
+                  backgroundColor: Colors.red,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PLM_Site()));
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(Icons.home),
+                    Text('   PLM WEBSITE'),
+                  ],
+                ),
+              ),
+            ),
           ],
         )));
   }
-
-  // commented just in case need in the future
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: _title(),
-  //     ),
-  //     body: Container(
-  //       height: double.infinity,
-  //       width: double.infinity,
-  //       padding: const EdgeInsets.all(20),
-  //       child: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.center,
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: <Widget>[
-  //           _userUid(),
-  //           _signOutButton(),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }
