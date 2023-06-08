@@ -37,16 +37,18 @@ class HomePage extends StatelessWidget {
         ),
         body: SingleChildScrollView(
             child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              margin: EdgeInsets.only(left: 24, top: 24),
               width: double.infinity,
               child: const Text(
                 'Welcome!',
                 style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
+                  color: Colors.blue,
+                  fontSize: 32,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
             ),
@@ -57,6 +59,7 @@ class HomePage extends StatelessWidget {
                 Image.asset(
                   'lib/images/plm.png',
                   width: 275,
+                  height: 300,
                 ),
                 Column(
                   children: [
