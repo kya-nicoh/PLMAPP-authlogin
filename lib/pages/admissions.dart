@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Admission extends StatelessWidget {
-  const Admission({super.key});
+  const Admission({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,8 +71,8 @@ class _EventTrackerState extends State<EventTracker> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PhotoPage(
-                              imageUrl: 'https://example.com/how-to-apply.jpg',
+                            builder: (context) => WebViewPage(
+                              url: 'https://plm.edu.ph/admissions',
                             ),
                           ),
                         );
@@ -83,8 +84,8 @@ class _EventTrackerState extends State<EventTracker> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PhotoPage(
-                              imageUrl: 'https://example.com/details.jpg',
+                            builder: (context) => WebViewPage(
+                              url: 'https://plm.edu.ph/admissions/plmat',
                             ),
                           ),
                         );
@@ -96,8 +97,8 @@ class _EventTrackerState extends State<EventTracker> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PhotoPage(
-                              imageUrl: 'https://example.com/contact-us.jpg',
+                            builder: (context) => WebViewPage(
+                              url: 'https://plm.edu.ph/about/contact',
                             ),
                           ),
                         );
@@ -115,24 +116,20 @@ class _EventTrackerState extends State<EventTracker> {
   }
 }
 
-class PhotoPage extends StatelessWidget {
-  final String imageUrl;
+class WebViewPage extends StatelessWidget {
+  final String url;
 
-  const PhotoPage({required this.imageUrl});
+  const WebViewPage({required this.url});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(''),
+        title: Text('Web Page'),
       ),
-      body: Center(
-        child: Image.network(
-          imageUrl,
-          width: 200.0,
-          height: 200.0,
-          fit: BoxFit.cover,
-        ),
+      body: WebView(
+        initialUrl: url,
+        javascriptMode: JavascriptMode.unrestricted,
       ),
     );
   }
