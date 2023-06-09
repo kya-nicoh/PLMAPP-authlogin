@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../pages/librarycatalogue.dart';
 
 class plmlibrary extends StatefulWidget {
   const plmlibrary({Key? key}) : super(key: key);
@@ -308,11 +309,10 @@ class plmlibrarystate extends State<plmlibrary> {
                               },
                               child: Container(
                                 padding: EdgeInsets.only(top: 20.0),
-
                               ),
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
-                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 60.0),
+                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 70.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -322,26 +322,31 @@ class plmlibrarystate extends State<plmlibrary> {
                               top: 0,
                               child: Transform.scale(
                                 scale: 2.5,
-                              child: Image.asset(
-                                'lib/images/library_setappointment.png',
-                                width: 40.0,
-                                height: 40.0,
-                              ),
+                                child: IgnorePointer(
+                                  child: Image.asset(
+                                    'lib/images/library_setappointment.png',
+                                    width: 40.0,
+                                    height: 40.0,
+                                  ),
+                                ),
                               ),
                             ),
                             Positioned(
-                              bottom:20,
-                              child: Text(
-                                'Set Appointment',
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.black,
+                              bottom: 20,
+                              child: IgnorePointer(
+                                child: Text(
+                                  'SET \nAPPOINTMENT',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.black,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(width: 40.0), // Add spacing between the buttons
+                        SizedBox(width: 30.0), // Add spacing between the buttons
                         Stack(
                           alignment: Alignment.center,
                           children: [
@@ -351,11 +356,10 @@ class plmlibrarystate extends State<plmlibrary> {
                               },
                               child: Container(
                                 padding: EdgeInsets.only(top: 20.0),
-
                               ),
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
-                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 60.0),
+                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 70.0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
@@ -364,21 +368,26 @@ class plmlibrarystate extends State<plmlibrary> {
                             Positioned(
                               top: 0,
                               child: Transform.scale(
-                                scale: 2.5, // Adjust the scale factor as desired
-                                child: Image.asset(
-                                  'lib/images/library_borrowedbooks.png',
-                                  width: 40.0,
-                                  height: 40.0,
+                                scale: 2.5,
+                                child: IgnorePointer(
+                                  child: Image.asset(
+                                    'lib/images/library_borrowedbooks.png',
+                                    width: 40.0,
+                                    height: 40.0,
+                                  ),
                                 ),
                               ),
                             ),
                             Positioned(
-                              bottom:20,
-                              child: Text(
-                                'Borrowed Books',
-                                style: TextStyle(
-                                  fontSize: 12.0,
-                                  color: Colors.black,
+                              bottom: 20,
+                              child: IgnorePointer(
+                                child: Text(
+                                  'BORROWED\nBOOKS',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    color: Colors.black,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             )
@@ -387,9 +396,33 @@ class plmlibrarystate extends State<plmlibrary> {
                       ],
                     ),
                   ),
+                ),
+
+
+                SizedBox(height: 40),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 400,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF4FA3F1),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(56.0),
+                        topRight: Radius.circular(56.0),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: Offset(0, 3), // Adjust the shadow offset as desired
+                        ),
+                      ],
+                    ),
+                    child: librarycatalogue(),
+                  ),
                 )
-
-
 
 
               ],
