@@ -2,6 +2,8 @@ import 'package:plmapp_authlogin/pages/aboutplm.dart';
 import 'package:plmapp_authlogin/pages/admissions.dart';
 import '../auth.dart';
 import '../pages/plm_website_view.dart';
+import '../pages/map.dart';
+import '../pages/expanded_events.dart';
 import 'package:flutter/material.dart';
 
 class GuestPage extends StatefulWidget {
@@ -74,7 +76,7 @@ class _GuestPageState extends State<GuestPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '${time.month}-${time.day}\n${time.year}',
+                              '0${time.month}-${time.day}\n${time.year}',
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.indigo,
@@ -106,7 +108,11 @@ class _GuestPageState extends State<GuestPage> {
                           backgroundColor: Colors.red,
                         ),
                         onPressed: () {
-                          debugPrint('Outlined Button');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ExpandedEvents()));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -131,14 +137,24 @@ class _GuestPageState extends State<GuestPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
-                  height: 100,
-                  width: 100,
+                  height: 125,
+                  width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.question_answer),
+                        Icon(
+                          Icons.question_answer,
+                          size: 70,
+                        ),
                         Text(
                           'ABOUT PLM',
                           textAlign: TextAlign.center,
@@ -154,14 +170,24 @@ class _GuestPageState extends State<GuestPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 100,
-                  width: 100,
+                  height: 125,
+                  width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.map),
+                        Icon(
+                          Icons.map,
+                          size: 70,
+                        ),
                         Text(
                           'MAP',
                           textAlign: TextAlign.center,
@@ -169,19 +195,30 @@ class _GuestPageState extends State<GuestPage> {
                       ],
                     ),
                     onPressed: () {
-                      debugPrint('Outlined Button');
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Map()));
                     },
                   ),
                 ),
                 SizedBox(
-                  height: 100,
-                  width: 100,
+                  height: 125,
+                  width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.person),
+                        Icon(
+                          Icons.person,
+                          size: 70,
+                        ),
                         Text(
                           'ADMISION',
                           textAlign: TextAlign.center,
