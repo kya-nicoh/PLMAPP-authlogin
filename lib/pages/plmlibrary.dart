@@ -401,28 +401,59 @@ class plmlibrarystate extends State<plmlibrary> {
 
                 SizedBox(height: 40),
 
-                SizedBox(
-                  width: double.infinity,
-                  height: 400,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFF4FA3F1),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(56.0),
-                        topRight: Radius.circular(56.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 3,
-                          blurRadius: 5,
-                          offset: Offset(0, 3), // Adjust the shadow offset as desired
+                Stack(
+                  children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 400,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFF4FA3F1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(56.0),
+                          topRight: Radius.circular(56.0),
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: librarycatalogue(),
                     ),
-                    child: librarycatalogue(),
                   ),
-                )
+
+                  Positioned(
+                    left: MediaQuery.of(context).size.width * 0.5 -35,
+                    right: MediaQuery.of(context).size.width * 0.5 -35,
+                    child: Transform.scale(
+                      scale: 2.5,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 4.0, vertical: 2.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: Text(
+                          'Catalogue',
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ),
+
+
+                  ],
+                ),
+
+
 
 
               ],
