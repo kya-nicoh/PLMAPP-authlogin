@@ -35,3 +35,4 @@ flutter:
 
   assets:
     - lib/images/
+    - lib/images/logo_login.png

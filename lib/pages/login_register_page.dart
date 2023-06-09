@@ -48,33 +48,63 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Widget _title() {
-    return const Text('Firebase Auth');
+  Widget _entryField(String title, TextEditingController controller) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          title,
+          style: TextStyle(color: Colors.white),
+        ),
+        SizedBox(height: 10),
+        Container(
+          margin: EdgeInsets.fromLTRB(1, 5, 1, 5),
+          child: TextField(
+            controller: controller,
+            style: TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
-  Widget _entryField(
-    String title,
-    TextEditingController controller,
-  ) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: title,
+
+  Widget _errorMessage() {
+    return Text(
+      errorMessage ?? '',
+      style: TextStyle(color: Colors.white),
+    );
+  }
+
+  Widget _submitButton() {
+    return Container(
+      width: 200, // Set the desired width of the button
+      child: ElevatedButton(
+        onPressed: isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
+        style: ElevatedButton.styleFrom(
+          primary: Colors.white, // Set the background color to white
+        ),
+        child: Text(
+          isLogin ? 'Login' : 'Register',
+          style: TextStyle(color: Colors.black), // Set the text color to black
+        ),
       ),
     );
   }
 
-  Widget _errorMessage() {
-    return Text(errorMessage ?? '');
-  }
-
-  Widget _submitButton() {
-    return ElevatedButton(
-      onPressed:
-          isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
-      child: Text(isLogin ? 'Login' : 'Register'),
-    );
-  }
 
   Widget _loginOrRegisterButton() {
     return TextButton(
@@ -83,32 +113,64 @@ class _LoginPageState extends State<LoginPage> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? 'Register instead' : 'Login instead'),
+      child: Text(
+        isLogin ? 'Register instead' : 'Login instead',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: _title(),
-      ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
-            _errorMessage(),
-            _submitButton(),
-            _loginOrRegisterButton(),
-          ],
-        ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.white],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.5,
+            alignment: Alignment.center,
+            child: Image.asset(
+              'lib/images/logo_login.png',
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: const EdgeInsets.all(35),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _entryField('Email', _controllerEmail),
+                  _entryField('Password', _controllerPassword),
+                  _errorMessage(),
+                  _submitButton(),
+                  SizedBox(height: 50),
+                  _loginOrRegisterButton(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
