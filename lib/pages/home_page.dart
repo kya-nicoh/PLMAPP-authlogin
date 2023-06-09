@@ -34,9 +34,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _signOutButton() {
-    return ElevatedButton(
-      onPressed: signOut,
-      child: const Text('Sign Out'),
+    return Container(
+      margin: const EdgeInsets.only(top: 35),
+      child: ElevatedButton(
+        onPressed: signOut,
+        child: const Text('Sign Out'),
+      ),
     );
   }
 
@@ -71,15 +74,16 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(left: 24, top: 24),
+              margin: const EdgeInsets.only(top: 24),
               width: double.infinity,
               child: const Text(
                 'Welcome!',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.indigo,
                   fontSize: 32,
                   fontWeight: FontWeight.w900,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
             Row(
@@ -116,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '${time.month}-${time.day}\n${time.year}',
+                              '0${time.month}-${time.day}\n${time.year}',
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.indigo,
@@ -148,7 +152,11 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.red,
                         ),
                         onPressed: () {
-                          debugPrint('Outlined Button');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ExpandedEvents()));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -177,6 +185,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -184,6 +199,7 @@ class _HomePageState extends State<HomePage> {
                         Icon(
                           Icons.question_answer,
                           size: 70,
+                          color: Colors.blue,
                         ),
                         Text(
                           'ABOUT PLM',
@@ -203,6 +219,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -227,6 +250,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -262,6 +292,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -288,6 +325,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -314,6 +358,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
