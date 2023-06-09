@@ -7,6 +7,7 @@ import '../pages/program_courses.dart';
 import '../pages/expanded_events.dart';
 import '../pages/aboutplm.dart';
 import '../pages/plmlibrary.dart';
+import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -191,7 +192,7 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ProgramCourses(),
+                        builder: (context) => const Admission(),
                       ),
                     );
                   },

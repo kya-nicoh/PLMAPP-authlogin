@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../pages/contact.dart';
 import '../pages/program_courses.dart';
 import '../pages/academic_calendar.dart';
+import '../pages/missionandvision.dart';
 void main() => runApp(AboutPLMApp());
 
 class AboutPLMApp extends StatelessWidget {
@@ -113,7 +114,12 @@ class AboutPLMApp extends StatelessWidget {
                       ButtonWidget(
                         title: 'Hymn, Mission and Vision',
                         onTap: () {
-                          // Redirect to Hymn, Mission and Vision page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Mission(),
+                            ),
+                          );
                         },
                       ),
                       ButtonWidget(
