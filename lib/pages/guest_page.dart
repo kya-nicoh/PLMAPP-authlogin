@@ -130,44 +130,71 @@ class _GuestPageState extends State<GuestPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.question_answer),
-                      Text('ABOUT PLM'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.question_answer),
+                        Text(
+                          'ABOUT PLM',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutPLMApp()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AboutPLMApp()));
-                  },
                 ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.map),
-                      Text('MAP'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.map),
+                        Text(
+                          'MAP',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      debugPrint('Outlined Button');
+                    },
                   ),
-                  onPressed: () {
-                    debugPrint('Outlined Button');
-                  },
                 ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.person),
-                      Text('ADMISSION'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.person),
+                        Text(
+                          'ADMISION',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Admission()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Admission()));
-                  },
                 ),
               ],
             ),

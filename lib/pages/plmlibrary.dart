@@ -144,32 +144,254 @@ class plmlibrarystate extends State<plmlibrary> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(left: 16.0),
-                                  child: Text(
-                                    'Overlay Text',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  padding: EdgeInsets.only(left: 70.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Name',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(height: 8.0),
+                                      Text(
+                                        'Student Number',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 16.0),
-                                  child: Image.asset(
-                                    'lib/images/onebyoneplaceholder.png',
-                                    width: 30.0,
-                                    height: 30.0,
+                                  padding: EdgeInsets.only(right: 80.0, bottom: 20),
+                                  child: Transform.scale(
+                                    scale: 3.5,
+                                    child: Image.asset(
+                                      'lib/images/onebyoneplaceholder.png',
+                                      width: 30.0,
+                                      height: 30.0,
+                                    ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
                         ),
+                        Positioned(
+                          top: 16.0,
+                          left: 16.0,
+                          right: 16.0,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 140.0, top: 10.0), // Set the left padding
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  'P',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'L',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'M',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          SizedBox(width: 2), // Add some horizontal spacing between the sets of texts
+                                          Container(
+                                            width: 100,
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'AMANTASAN NG',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFFF8CF44),
+                                                  ),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.visible,
+                                                ),
+                                                Text(
+                                                  'UNGSOD NG',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFFF8CF44),
+                                                  ),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.visible,
+                                                ),
+                                                Text(
+                                                  'AYNILA',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFFF8CF44),
+                                                  ),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.visible,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 7.0),
+                                child: Image.asset(
+                                  'lib/images/logo.png',
+                                  width: 50.0,
+                                  height: 50.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
+                SizedBox(height: 40),
+
+                Container(
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                // Add functionality for the button
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(top: 20.0),
+
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 60.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              child: Transform.scale(
+                                scale: 2.5,
+                              child: Image.asset(
+                                'lib/images/library_setappointment.png',
+                                width: 40.0,
+                                height: 40.0,
+                              ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom:20,
+                              child: Text(
+                                'Set Appointment',
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 40.0), // Add spacing between the buttons
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                // Add functionality for the button
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(top: 20.0),
+
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 60.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              top: 0,
+                              child: Transform.scale(
+                                scale: 2.5, // Adjust the scale factor as desired
+                                child: Image.asset(
+                                  'lib/images/library_borrowedbooks.png',
+                                  width: 40.0,
+                                  height: 40.0,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom:20,
+                              child: Text(
+                                'Borrowed Books',
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+
+
+
+
               ],
             ),
           ),

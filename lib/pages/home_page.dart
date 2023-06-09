@@ -10,9 +10,14 @@ import '../pages/plmlibrary.dart';
 import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final User? user = Auth().currentUser;
 
   Future<void> signOut() async {
@@ -36,6 +41,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var time = DateTime.now();
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -84,23 +91,77 @@ class HomePage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ExpandedEvents(),
+                    const SizedBox(
+                      height: 0,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 10, bottom: 12),
+                      height: 115,
+                      width: 100,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                        );
-                      },
-                      child: Column(
-                        children: const [
-                          Icon(Icons.mic),
-                          Text('Events'),
-                        ],
+                          elevation: 3,
+                          backgroundColor: Colors.lightBlueAccent,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            // insert here
+                          });
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${time.month}-${time.day}\n${time.year}',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.indigo,
+                                fontWeight: FontWeight.w900,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              '${time.hour}:${time.minute} pm',
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 75,
+                      width: 100,
+                      margin: const EdgeInsets.only(left: 10),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 3,
+                          backgroundColor: Colors.red,
+                        ),
+                        onPressed: () {
+                          debugPrint('Outlined Button');
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.campaign,
+                              size: 45,
+                            ),
+                            Text(
+                              'Events',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
