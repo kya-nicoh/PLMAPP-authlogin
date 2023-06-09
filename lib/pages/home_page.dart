@@ -86,6 +86,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
               ),
             ),
+            _userUid(), // Add this line to display the user's email
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
