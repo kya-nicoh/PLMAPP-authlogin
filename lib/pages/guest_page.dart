@@ -54,7 +54,7 @@ class _GuestPageState extends State<GuestPage> {
                       height: 0,
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 10, bottom: 12),
+                      margin: const EdgeInsets.only(left: 10, bottom: 12),
                       height: 115,
                       width: 100,
                       child: ElevatedButton(
@@ -96,7 +96,7 @@ class _GuestPageState extends State<GuestPage> {
                     Container(
                       height: 75,
                       width: 100,
-                      margin: EdgeInsets.only(left: 10),
+                      margin: const EdgeInsets.only(left: 10),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -129,45 +129,79 @@ class _GuestPageState extends State<GuestPage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.question_answer),
-                      Text('ABOUT PLM'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.question_answer),
+                        Text(
+                          'ABOUT PLM',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutPLMApp()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AboutPLMApp()));
-                  },
                 ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.map),
-                      Text('MAP'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.map),
+                        Text(
+                          'MAP',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      debugPrint('Outlined Button');
+                    },
                   ),
-                  onPressed: () {
-                    debugPrint('Outlined Button');
-                  },
                 ),
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.person),
-                      Text('ADMISSION'),
-                    ],
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: OutlinedButton(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.person),
+                        Text(
+                          'ADMISION',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      debugPrint('Outlined Button');
+                    },
                   ),
+<<<<<<< HEAD
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const Admission()));
                   },
+=======
+>>>>>>> eb4b1ecca649da9eda2b8e73eece27d29b387832
                 ),
               ],
             ),
