@@ -1,5 +1,5 @@
 import 'package:plmapp_authlogin/pages/aboutplm.dart';
-
+import 'package:plmapp_authlogin/pages/admissions.dart';
 import '../auth.dart';
 import '../pages/plm_website_view.dart';
 import 'package:flutter/material.dart';
@@ -163,7 +163,10 @@ class _GuestPageState extends State<GuestPage> {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Admission()));
                   },
                 ),
               ],

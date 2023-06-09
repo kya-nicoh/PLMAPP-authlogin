@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 
-
 class Admission extends StatelessWidget {
   const Admission({super.key});
   @override
@@ -40,86 +39,74 @@ class _EventTrackerState extends State<EventTracker> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: Container(
-              color: Colors.red.shade50,
-              padding: EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Academic Events',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+          SizedBox(height: 20.0), // Add whitespace
+          Container(
+            color: Colors.red.shade50,
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Academic Events',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(height: 20.0),
-                  TableCalendar(
-                    firstDay: DateTime(DateTime.now().year - 1),
-                    lastDay: DateTime(DateTime.now().year + 1),
-                    focusedDay: focusedDay,
-                    calendarFormat: calendarFormat,
-                    onDaySelected: _onDaySelected,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(height: 20.0), //
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PhotoPage(
-                        imageUrl: 'https://example.com/how-to-apply.jpg',
-                      ),
+                ),
+                SizedBox(height: 20.0),
+                TableCalendar(
+                  firstDay: DateTime(DateTime.now().year - 1),
+                  lastDay: DateTime(DateTime.now().year + 1),
+                  focusedDay: focusedDay,
+                  calendarFormat: calendarFormat,
+                  onDaySelected: _onDaySelected,
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PhotoPage(
+                              imageUrl: 'https://example.com/how-to-apply.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text('How to Apply'),
                     ),
-                  );
-                },
-                child: Text('How to Apply'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PhotoPage(
-                        imageUrl: 'https://example.com/details.jpg',
-                      ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PhotoPage(
+                              imageUrl: 'https://example.com/details.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text('Details'),
                     ),
-                  );
-                },
-                child: Text('Details'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PhotoPage(
-                        imageUrl: 'https://example.com/contact-us.jpg',
-                      ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PhotoPage(
+                              imageUrl: 'https://example.com/contact-us.jpg',
+                            ),
+                          ),
+                        );
+                      },
+                      child: Text('Contact Us'),
                     ),
-                  );
-                },
-                child: Text('Contact Us'),
-              ),
-            ],
-          ),
-          SizedBox(height: 20.0), // Add whitespace between buttons and footer photo
-          Expanded(
-            child: Container(
-              color: Colors.red.shade50,
-              padding: EdgeInsets.all(20.0),
-              child: Image.network(
-                'https://example.com/footer-photo.jpg',
-                fit: BoxFit.cover,
-              ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
