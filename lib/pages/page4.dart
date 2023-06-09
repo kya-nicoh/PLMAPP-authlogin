@@ -15,7 +15,7 @@ class Page4 extends StatelessWidget {
   void skipPage(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const GuestPage()),
+      MaterialPageRoute(builder: (context) => GuestPage()),
     );
   }
 

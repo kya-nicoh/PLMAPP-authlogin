@@ -1,12 +1,21 @@
+import 'package:plmapp_authlogin/pages/aboutplm.dart';
+import 'package:plmapp_authlogin/pages/admissions.dart';
 import '../auth.dart';
 import '../pages/plm_website_view.dart';
 import 'package:flutter/material.dart';
-import '../pages/aboutplm.dart';
-class GuestPage extends StatelessWidget {
+
+class GuestPage extends StatefulWidget {
   const GuestPage({super.key});
 
   @override
+  State<GuestPage> createState() => _GuestPageState();
+}
+
+class _GuestPageState extends State<GuestPage> {
+  @override
   Widget build(BuildContext context) {
+    var time = DateTime.now();
+
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -19,7 +28,7 @@ class GuestPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(left: 24, top: 24),
+              margin: const EdgeInsets.only(left: 24, top: 24),
               width: double.infinity,
               child: const Text(
                 'Welcome, Guest!',
@@ -41,19 +50,77 @@ class GuestPage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    // DATE,
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                    const SizedBox(
+                      height: 0,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10, bottom: 12),
+                      height: 115,
+                      width: 100,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 3,
+                          backgroundColor: Colors.lightBlueAccent,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            // insert here
+                          });
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${time.month}-${time.day}\n${time.year}',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.indigo,
+                                fontWeight: FontWeight.w900,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              '${time.hour}:${time.minute} pm',
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: () {
-                        debugPrint('Outlined Button');
-                      },
-                      child: Column(
-                        children: const [
-                          Icon(Icons.mic),
-                          Text('Events'),
-                        ],
+                    ),
+                    Container(
+                      height: 75,
+                      width: 100,
+                      margin: EdgeInsets.only(left: 10),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          elevation: 3,
+                          backgroundColor: Colors.red,
+                        ),
+                        onPressed: () {
+                          debugPrint('Outlined Button');
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.campaign,
+                              size: 45,
+                            ),
+                            Text(
+                              'Events',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -96,7 +163,10 @@ class GuestPage extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Admission()));
                   },
                 ),
               ],

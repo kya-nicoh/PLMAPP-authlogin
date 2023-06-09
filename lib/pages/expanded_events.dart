@@ -7,6 +7,7 @@ class ExpandedEvents extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Event Tracker',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

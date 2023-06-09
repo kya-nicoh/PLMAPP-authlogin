@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
           child: TextField(
             controller: controller,
             style: TextStyle(color: Colors.black),
+            obscureText: title == 'Password', // Set obscureText to true for the password field
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
@@ -80,6 +81,7 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
   }
+
 
 
   Widget _errorMessage() {
