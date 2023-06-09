@@ -273,6 +273,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'HEALTH\nDECLARATION',
+                          style: TextStyle(
+                            fontSize: 11,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -349,6 +352,9 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'ADMISSION',
                           textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),
