@@ -10,7 +10,7 @@ class CalendarMain extends StatelessWidget {
     return MaterialApp(
       title: 'Calendar App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: CalendarScreen(),
     );
   }

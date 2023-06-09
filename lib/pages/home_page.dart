@@ -40,6 +40,22 @@ class HomePage extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text('Pamantasan ng Lungsod ng Maynila'),
+        // leading: IconButton( // PUT PLM LOGO HERE
+        //   onPressed: () {
+        //     Navigator.of(context).pop();
+        //   },
+        //   icon: const Icon(Icons.arrow_back_ios),
+        // ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              debugPrint('Icon Button');
+            },
+            icon: const Icon(
+              Icons.info_outline,
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
