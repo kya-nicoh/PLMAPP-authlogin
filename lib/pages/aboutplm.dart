@@ -221,7 +221,7 @@ class _EmailWidgetState extends State<EmailWidget> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+              contentPadding: EdgeInsets.symmetric(vertical: 100.0),
             ),
           ),
           SizedBox(height: 20.0),
