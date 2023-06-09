@@ -6,12 +6,12 @@ import '../pages/academic_calendar.dart';
 import '../pages/program_courses.dart';
 import '../pages/expanded_events.dart';
 import '../pages/aboutplm.dart';
+import '../pages/login_register_page.dart';
 import '../pages/plmlibrary.dart';
 import '../pages/map.dart';
 import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key});
@@ -39,12 +39,11 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.only(top: 35),
       child: ElevatedButton(
-        // BACKUP: onPressed: (){Navigator.push(
-        // context,
-        // MaterialPageRoute(
-        //     builder: (context) =>
-        //         const ExpandedEvents()));},
-        onPressed: signOut,
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const LoginPage()));
+        },
+        // onPressed: signOut,
         child: const Text('Sign Out'),
       ),
     );
@@ -68,7 +67,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () async {
-              const url = 'https://plm.edu.ph/images/downloads/manuals/PLM_Student_Manual_v1.pdf';
+              const url =
+                  'https://plm.edu.ph/images/downloads/manuals/PLM_Student_Manual_v1.pdf';
               if (await canLaunch(url)) {
                 await launch(url);
               } else {
@@ -77,7 +77,6 @@ class _HomePageState extends State<HomePage> {
             },
             icon: const Icon(Icons.info_outline),
           ),
-
         ],
       ),
       body: SingleChildScrollView(
