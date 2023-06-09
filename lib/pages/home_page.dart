@@ -37,6 +37,11 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.only(top: 35),
       child: ElevatedButton(
+        // BACKUP: onPressed: (){Navigator.push(
+        // context,
+        // MaterialPageRoute(
+        //     builder: (context) =>
+        //         const ExpandedEvents()));},
         onPressed: signOut,
         child: const Text('Sign Out'),
       ),

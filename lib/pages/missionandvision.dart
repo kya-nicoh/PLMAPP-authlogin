@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Mission extends StatelessWidget {
   const Mission({super.key});
 
@@ -9,14 +8,16 @@ class Mission extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Vision, Mission, Hymn',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Curved Grid View'),
+          title: const Text('Hymn, Mission and Vision'),
         ),
-        backgroundColor: Colors.white, // Set the background color of the Scaffold
+        backgroundColor:
+            Colors.white, // Set the background color of the Scaffold
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +59,8 @@ class Mission extends StatelessWidget {
                             const Expanded(
                               child: Center(
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 16.0),
                                   child: Text(
                                     'The Pamantasan ng Lungsod ng Maynila shall be the premier people’s university pursuing public interest and national development.',
                                     style: TextStyle(
@@ -101,7 +103,8 @@ class Mission extends StatelessWidget {
                             const Expanded(
                               child: Center(
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 16.0),
                                   child: Text(
                                     'The Pamantasan ng Lungsod ng Maynila shall form critical-minded and service-oriented leaders and innovators in various disciplines through accessible and relevant quality education, transformative institutional research and extension services, and key linkages.',
                                     style: TextStyle(
@@ -201,7 +204,8 @@ class Mission extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 16.0,
-                          fontWeight: FontWeight.bold, // Add this line to make the text bold
+                          fontWeight: FontWeight
+                              .bold, // Add this line to make the text bold
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -220,7 +224,8 @@ class Mission extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 12.0,
-                          fontWeight: FontWeight.bold, // Add this line to make the text bold
+                          fontWeight: FontWeight
+                              .bold, // Add this line to make the text bold
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -235,7 +240,6 @@ class Mission extends StatelessWidget {
                           ),
                           textAlign: TextAlign.justify,
                         ),
-
                       ),
                     ],
                   ),
@@ -285,7 +289,6 @@ class Mission extends StatelessWidget {
                     ],
                   ),
                 ),
-
               ),
             ],
           ),
