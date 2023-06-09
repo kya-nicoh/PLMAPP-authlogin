@@ -10,6 +10,8 @@ import '../pages/plmlibrary.dart';
 import '../pages/map.dart';
 import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key});
@@ -65,13 +67,17 @@ class _HomePageState extends State<HomePage> {
         // ),
         actions: [
           IconButton(
-            onPressed: () {
-              debugPrint('Icon Button');
+            onPressed: () async {
+              const url = 'https://plm.edu.ph/images/downloads/manuals/PLM_Student_Manual_v1.pdf';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                debugPrint('Could not launch $url');
+              }
             },
-            icon: const Icon(
-              Icons.info_outline,
-            ),
+            icon: const Icon(Icons.info_outline),
           ),
+
         ],
       ),
       body: SingleChildScrollView(
