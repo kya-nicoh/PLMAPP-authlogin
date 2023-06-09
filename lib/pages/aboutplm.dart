@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../pages/contact.dart';
 void main() => runApp(AboutPLMApp());
 
 class AboutPLMApp extends StatelessWidget {
@@ -88,8 +88,14 @@ class AboutPLMApp extends StatelessWidget {
                       ButtonWidget(
                         title: 'Contact PLM',
                         onTap: () {
-                          // Redirect to Contact PLM page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Contact(),
+                            ),
+                          );
                         },
+
                       ),
                       ButtonWidget(
                         title: 'Programs/Courses',
