@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(AboutPLMApp());
 
 class AboutPLMApp extends StatelessWidget {
-  const AboutPLMApp({super.key});
+  const AboutPLMApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,34 +18,47 @@ class AboutPLMApp extends StatelessWidget {
             margin: EdgeInsets.all(16.0),
             child: Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        'The University',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
+                Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
-                      SizedBox(height: 16.0),
-                      Text(
-                        'Pamantasan ng Lungsod ng Maynila (PLM) is the first and only chartered and autonomous university funded by a city government. It was created by the Congress of the Philippines by virtue of Republic Act No. 4196 or “An Act Authorizing the City of Manila to Establish and operate the University of City Manila” on June 19, 1965.\n\nThe university first opened its gates on July 17, 1967, to 556 first-year students at its campus in the historic Intramuros district, which served as the seat of power during the Spanish occupation.\n\nPLM is the first local government-funded tertiary institution that offered tuition-free education. PLM also carries the distinction of being the first tertiary institution to have a Filipino official name, which is why people use “Pamantasan” to refer to PLM. The word pamantasan derived from the Filipino term “pantas” or wise person. The University stands on historic grounds. On its site once stood the Universidad de San Ignacio (1590-1798), Universidad Maximo de San Ignacio, Colegio de San Jose, and Ateneo Municipal de Manila (1865-1901). PLM is a premier university that has consistently garnered a 100% passing rate in licensure exams. Since 1967, it has produced competent and socially responsible graduates who have contributed to nation-building.',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.justify,
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            'The University',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 30.0),
+                          Text(
+                            'Pamantasan ng Lungsod ng Maynila (PLM)1 is the first and only chartered and autonomous university funded by a city government. It was created by the Congress of the Philippines by virtue of Republic Act No. 4196 or “An Act Authorizing the City of Manila to Establish and operate the University of City Manila” on June 19, 1965.\n\nThe university first opened its gates on July 17, 1967, to 556 first-year students at its campus in the historic Intramuros district, which served as the seat of power during the Spanish occupation.\n\nPLM is the first local government-funded tertiary institution that offered tuition-free education. PLM also carries the distinction of being the first tertiary institution to have a Filipino official name, which is why people use “Pamantasan” to refer to PLM. The word pamantasan derived from the Filipino term “pantas” or wise person. The University stands on historic grounds. On its site once stood the Universidad de San Ignacio (1590-1798), Universidad Maximo de San Ignacio, Colegio de San Jose, and Ateneo Municipal de Manila (1865-1901). PLM is a premier university that has consistently garnered a 100% passing rate in licensure exams. Since 1967, it has produced competent and socially \nresponsible graduates who have contributed to nation-building.',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.justify,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Positioned(
+                      bottom: -30,
+                      right: 0,
+                      child: Image.asset(
+                        'lib/images/2.png', // Replace with your image path
+                        height: 100,
+                        width: 100,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 32.0),
                 Container(
@@ -110,6 +123,8 @@ class AboutPLMApp extends StatelessWidget {
   }
 }
 
+
+
 class ButtonWidget extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
@@ -137,6 +152,8 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
+
+
 
 class EmailWidget extends StatefulWidget {
   @override
@@ -179,40 +196,48 @@ class _EmailWidgetState extends State<EmailWidget> {
           SizedBox(height: 16.0),
           TextField(
             controller: _messageController,
-            maxLines: 4,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.white.withOpacity(0.2),
+              fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide.none,
               ),
-              hintText: 'Compose your email message here...',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+              contentPadding: EdgeInsets.symmetric(vertical: 10.0),
             ),
           ),
-          SizedBox(height: 16.0),
+          SizedBox(height: 20.0),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
                 onPressed: () {
                   // Send email
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
+                  primary: Colors.blue,
+                  onPrimary: Colors.white,
                 ),
                 child: Text('Send'),
               ),
+              SizedBox(width: 5.0), // Add space between buttons
               ElevatedButton(
                 onPressed: _deleteMessage,
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  onPrimary: Colors.black,
+                  primary: Colors.red,
+                  onPrimary: Colors.white,
                 ),
                 child: Text('Delete'),
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    'lib/images/email.png', // Replace with your image path
+                    height: 100,
+                    width: 150,
+                  ),
+                ),
               ),
             ],
           ),
