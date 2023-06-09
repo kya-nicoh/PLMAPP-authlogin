@@ -7,6 +7,7 @@ import '../pages/program_courses.dart';
 import '../pages/expanded_events.dart';
 import '../pages/aboutplm.dart';
 import '../pages/plmlibrary.dart';
+import '../pages/map.dart';
 import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
 
@@ -168,113 +169,172 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            GridView.count(
-              crossAxisCount: 3,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                OutlinedButton(
-                  child: Center(
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.question_answer),
-                        Text('ABOUT PLM'),
+                        Icon(
+                          Icons.question_answer,
+                          size: 70,
+                        ),
+                        Text(
+                          'ABOUT PLM',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutPLMApp()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AboutPLMApp(),
-                      ),
-                    );
-                  },
                 ),
-                OutlinedButton(
-                  child: Center(
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.map),
-                        Text('MAP'),
+                        Icon(
+                          Icons.map,
+                          size: 70,
+                        ),
+                        Text(
+                          'MAP',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => const Map()));
+                    },
                   ),
-                  onPressed: () {
-                    debugPrint('Outlined Button');
-                  },
                 ),
-                OutlinedButton(
-                  child: Center(
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.receipt),
-                        Text('HEALTH\nDECLARATION'),
+                        Icon(
+                          Icons.document_scanner,
+                          size: 70,
+                        ),
+                        Text(
+                          'HEALTH\nDECLARATION',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HealthDeclaration()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HealthDeclaration(),
-                      ),
-                    );
-                  },
                 ),
-                OutlinedButton(
-                  child: Center(
+              ],
+            ),
+            Container(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.calendar_month),
-                        Text('ACADEMIC\nCALENDAR'),
+                        Icon(
+                          Icons.calendar_month,
+                          size: 70,
+                        ),
+                        Text(
+                          'ACADEMIC CALENDAR',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CalendarMain()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CalendarMain(),
-                      ),
-                    );
-                  },
                 ),
-                OutlinedButton(
-                  child: Center(
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.person),
-                        Text('ADMISSION'),
+                        Icon(
+                          Icons.check,
+                          size: 70,
+                        ),
+                        Text(
+                          'ADMISSION',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Admission()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Admission(),
-                      ),
-                    );
-                  },
                 ),
-                OutlinedButton(
-                  child: Center(
+                SizedBox(
+                  height: 125,
+                  width: 125,
+                  child: OutlinedButton(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
-                        Icon(Icons.book),
-                        Text('LIBRARY'),
+                        Icon(
+                          Icons.book_rounded,
+                          size: 70,
+                        ),
+                        Text(
+                          'LIBRARY',
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const plmlibrary()));
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const plmlibrary(),
-                      ),
-                    );
-                  },
                 ),
               ],
             ),
