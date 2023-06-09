@@ -203,7 +203,7 @@ class _EmailWidgetState extends State<EmailWidget> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              contentPadding: EdgeInsets.symmetric(vertical: 60.0),
+              contentPadding: EdgeInsets.symmetric(vertical: 0.0),
             ),
           ),
           SizedBox(height: 20.0),
@@ -231,7 +231,7 @@ class _EmailWidgetState extends State<EmailWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: Alignment.centerRight,
+                  alignment: Alignment.bottomRight,
                   child: Image.asset(
                     'lib/images/email.png', // Replace with your image path
                     height: 100,

@@ -1,7 +1,7 @@
 import '../auth.dart';
 import '../pages/plm_website_view.dart';
 import 'package:flutter/material.dart';
-
+import '../pages/aboutplm.dart';
 class GuestPage extends StatelessWidget {
   const GuestPage({super.key});
 
@@ -71,7 +71,10 @@ class GuestPage extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutPLMApp()));
                   },
                 ),
                 OutlinedButton(
