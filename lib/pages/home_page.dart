@@ -2,6 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../auth.dart';
 import '../pages/healthdeclaration.dart';
 import '../pages/plm_website_view.dart';
+import '../pages/academic_calendar.dart';
+import '../pages/program_courses.dart';
+import '../pages/expanded_events.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -70,7 +74,10 @@ class HomePage extends StatelessWidget {
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () {
-                        debugPrint('Outlined Button');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ExpandedEvents()));
                       },
                       child: Column(
                         children: const [
@@ -135,7 +142,10 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CalendarMain()));
                   },
                 ),
                 OutlinedButton(
@@ -146,7 +156,10 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ProgramCourses()));
                   },
                 ),
                 OutlinedButton(
