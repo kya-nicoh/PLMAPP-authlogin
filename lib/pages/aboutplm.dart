@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/contact.dart';
+import '../pages/program_courses.dart';
+import '../pages/academic_calendar.dart';
 void main() => runApp(AboutPLMApp());
 
 class AboutPLMApp extends StatelessWidget {
@@ -100,7 +102,12 @@ class AboutPLMApp extends StatelessWidget {
                       ButtonWidget(
                         title: 'Programs/Courses',
                         onTap: () {
-                          // Redirect to Programs/Courses page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ProgramCourses(),
+                            ),
+                          );
                         },
                       ),
                       ButtonWidget(
@@ -112,7 +119,12 @@ class AboutPLMApp extends StatelessWidget {
                       ButtonWidget(
                         title: 'Academic Calendar',
                         onTap: () {
-                          // Redirect to Academic Calendar page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CalendarMain(),
+                            ),
+                          );
                         },
                       ),
                       SizedBox(height: 32.0),
