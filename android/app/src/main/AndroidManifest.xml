@@ -2,9 +2,9 @@
     package="com.example.plmapp_authlogin">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="plmapp_authlogin"
+        android:label="Improved PLM App - Group D"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
