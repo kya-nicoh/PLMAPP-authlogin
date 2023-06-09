@@ -6,10 +6,12 @@ import '../pages/academic_calendar.dart';
 import '../pages/program_courses.dart';
 import '../pages/expanded_events.dart';
 import '../pages/aboutplm.dart';
+import '../pages/login_register_page.dart';
 import '../pages/plmlibrary.dart';
 import '../pages/map.dart';
 import '../pages/admissions.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key});
@@ -34,9 +36,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _signOutButton() {
-    return ElevatedButton(
-      onPressed: signOut,
-      child: const Text('Sign Out'),
+    return Container(
+      margin: const EdgeInsets.only(top: 35),
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const LoginPage()));
+        },
+        // onPressed: signOut,
+        child: const Text('Sign Out'),
+      ),
     );
   }
 
@@ -57,12 +66,16 @@ class _HomePageState extends State<HomePage> {
         // ),
         actions: [
           IconButton(
-            onPressed: () {
-              debugPrint('Icon Button');
+            onPressed: () async {
+              const url =
+                  'https://plm.edu.ph/images/downloads/manuals/PLM_Student_Manual_v1.pdf';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                debugPrint('Could not launch $url');
+              }
             },
-            icon: const Icon(
-              Icons.info_outline,
-            ),
+            icon: const Icon(Icons.info_outline),
           ),
         ],
       ),
@@ -71,17 +84,19 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              margin: EdgeInsets.only(left: 24, top: 24),
+              margin: const EdgeInsets.only(top: 24),
               width: double.infinity,
               child: const Text(
                 'Welcome!',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.indigo,
                   fontSize: 32,
                   fontWeight: FontWeight.w900,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
+            _userUid(), // Add this line to display the user's email
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -116,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '${time.month}-${time.day}\n${time.year}',
+                              '0${time.month}-${time.day}\n${time.year}',
                               style: const TextStyle(
                                 fontSize: 20,
                                 color: Colors.indigo,
@@ -148,7 +163,11 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.red,
                         ),
                         onPressed: () {
-                          debugPrint('Outlined Button');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ExpandedEvents()));
                         },
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -177,6 +196,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -184,6 +210,7 @@ class _HomePageState extends State<HomePage> {
                         Icon(
                           Icons.question_answer,
                           size: 70,
+                          color: Colors.blue,
                         ),
                         Text(
                           'ABOUT PLM',
@@ -203,6 +230,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -227,6 +261,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -237,6 +278,9 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Text(
                           'HEALTH\nDECLARATION',
+                          style: TextStyle(
+                            fontSize: 11,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -262,6 +306,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -288,6 +339,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -299,6 +357,9 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'ADMISSION',
                           textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),
@@ -314,6 +375,13 @@ class _HomePageState extends State<HomePage> {
                   height: 125,
                   width: 125,
                   child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      elevation: 3,
+                      backgroundColor: Colors.white,
+                    ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

@@ -62,11 +62,13 @@ class _LoginPageState extends State<LoginPage> {
           child: TextField(
             controller: controller,
             style: TextStyle(color: Colors.black),
-            obscureText: title == 'Password', // Set obscureText to true for the password field
+            obscureText: title ==
+                'Password', // Set obscureText to true for the password field
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
-              contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),
                 borderRadius: BorderRadius.circular(10),
@@ -82,8 +84,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-
-
   Widget _errorMessage() {
     return Text(
       errorMessage ?? '',
@@ -95,7 +95,9 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       width: 200, // Set the desired width of the button
       child: ElevatedButton(
-        onPressed: isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
+        onPressed: isLogin
+            ? signInWithEmailAndPassword
+            : createUserWithEmailAndPassword,
         style: ElevatedButton.styleFrom(
           primary: Colors.white, // Set the background color to white
         ),
@@ -106,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 
   Widget _loginOrRegisterButton() {
     return TextButton(
