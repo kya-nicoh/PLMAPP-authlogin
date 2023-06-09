@@ -179,21 +179,83 @@ class plmlibrarystate extends State<plmlibrary> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {
-                // Add functionality for the "Home" button
-              },
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 40.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add functionality for the "Home" button
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.home, color: Colors.white), // Replace with the desired home icon
+                      SizedBox(width: 8), // Add some spacing between the icon and text
+                      Text(
+                        'Home',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20.0),
+                      topLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(3.0),
+                      bottomLeft: Radius.circular(3.0),
+                    ),
+                  ),
+                  backgroundColor: Color(0xFFFF1330),
+                ),
+              ),
             ),
-            IconButton(
-              icon: Icon(Icons.web),
-              onPressed: () {
-                // Add functionality for the "Website" button
-              },
+
+            SizedBox(height: 2.0),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 40.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Add functionality for the "Website" button
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.language, color: Colors.black), // Replace with the desired website icon
+                      SizedBox(width: 8), // Add some spacing between the icon and text
+                      Text(
+                        'Website',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(3.0),
+                      topLeft: Radius.circular(3.0),
+                      bottomRight: Radius.circular(20.0),
+                      bottomLeft: Radius.circular(20.0),
+                    ),
+                  ),
+                  primary: Colors.white,
+                ),
+              ),
             ),
+
+            SizedBox(height: 30.0),
           ],
         ),
       ),
+
+
 
     );
   }
