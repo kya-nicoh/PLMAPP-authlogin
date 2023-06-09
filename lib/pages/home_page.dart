@@ -6,6 +6,7 @@ import '../pages/academic_calendar.dart';
 import '../pages/program_courses.dart';
 import '../pages/expanded_events.dart';
 import '../pages/aboutplm.dart';
+import '../pages/plmlibrary.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -173,7 +174,10 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    debugPrint('Outlined Button');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const plmlibrary()));
                   },
                 ),
               ],
