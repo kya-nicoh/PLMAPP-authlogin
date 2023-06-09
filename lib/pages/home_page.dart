@@ -10,7 +10,7 @@ import '../pages/plmlibrary.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  HomePage({Key? key});
 
   final User? user = Auth().currentUser;
 
@@ -36,15 +36,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          title: const Text('Pamantasan ng Lungsod ng Maynila'),
-        ),
-        body: SingleChildScrollView(
-            child: Column(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: const Text('Pamantasan ng Lungsod ng Maynila'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               margin: EdgeInsets.only(left: 24, top: 24),
@@ -59,7 +58,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
@@ -69,16 +67,17 @@ class HomePage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    // DATE,
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                       ),
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ExpandedEvents()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ExpandedEvents(),
+                          ),
+                        );
                       },
                       child: Column(
                         children: const [
@@ -91,126 +90,124 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            GridView.count(
+              crossAxisCount: 3,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.question_answer),
-                      Text('ABOUT PLM'),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.question_answer),
+                        Text('ABOUT PLM'),
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AboutPLMApp()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AboutPLMApp(),
+                      ),
+                    );
                   },
                 ),
                 OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.map),
-                      Text('MAP'),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.map),
+                        Text('MAP'),
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     debugPrint('Outlined Button');
                   },
                 ),
                 OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.receipt),
-                      Text('HEALTH DECLARATION'),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.receipt),
+                        Text('HEALTH\nDECLARATION'),
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HealthDeclaration()));
-                  },
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.calendar_month),
-                      Text('ACADEMIC\nCALENDAR'),
-                    ],
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CalendarMain()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HealthDeclaration(),
+                      ),
+                    );
                   },
                 ),
                 OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.person),
-                      Text('ADMISSION'),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.calendar_month),
+                        Text('ACADEMIC\nCALENDAR'),
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ProgramCourses()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CalendarMain(),
+                      ),
+                    );
                   },
                 ),
                 OutlinedButton(
-                  child: Column(
-                    children: const [
-                      Icon(Icons.book),
-                      Text('LIBRARY'),
-                    ],
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.person),
+                        Text('ADMISSION'),
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const plmlibrary()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProgramCourses(),
+                      ),
+                    );
+                  },
+                ),
+                OutlinedButton(
+                  child: Center(
+                    child: Column(
+                      children: const [
+                        Icon(Icons.book),
+                        Text('LIBRARY'),
+                      ],
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const plmlibrary(),
+                      ),
+                    );
                   },
                 ),
               ],
             ),
             Column(
               children: <Widget>[
-                _signOutButton(), // TO-DO: not logging out, if persist just redirect to home
+                _signOutButton(),
               ],
-            )
+            ),
           ],
-        )));
+        ),
+      ),
+    );
   }
-
-  // commented just in case need in the future
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: _title(),
-  //     ),
-  //     body: Container(
-  //       height: double.infinity,
-  //       width: double.infinity,
-  //       padding: const EdgeInsets.all(20),
-  //       child: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.center,
-  //         mainAxisAlignment: MainAxisAlignment.center,
-  //         children: <Widget>[
-  //           _userUid(),
-  //           _signOutButton(),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }
