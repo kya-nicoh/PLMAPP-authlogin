@@ -1,7 +1,7 @@
 import 'package:plmapp_authlogin/pages/aboutplm.dart';
 import 'package:plmapp_authlogin/pages/admissions.dart';
 import '../auth.dart';
-import '../pages/plm_website_view.dart';
+import '../pages/crs-main.dart';
 import '../pages/map.dart';
 import '../pages/expanded_events.dart';
 import 'package:flutter/material.dart';
@@ -255,7 +255,7 @@ class _GuestPageState extends State<GuestPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const PLM_Site()));
+                          builder: (context) => const PLM_crs()));
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
